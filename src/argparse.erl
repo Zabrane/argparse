@@ -681,7 +681,7 @@ convert_type(float, Arg, Opt, Eos) ->
 convert_type({float, Opts}, Arg, Opt, Eos) ->
     minimax(get_float(Arg, Opt, Eos), Opts, Eos, Opt);
 convert_type(atom, Arg, Opt, Eos) ->
-    try list_to_existing_atom(Arg)
+    try list_to_atom(Arg)
     catch error:badarg ->
         fail({invalid_argument, Eos#eos.commands, Opt, Arg})
     end;
